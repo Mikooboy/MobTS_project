@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">MobTS_project</string>
+    <string name="medicationTitle">Lääkkeet</string>
+    <string name="addMedication">Lisää lääke</string>
+    <string name="history">Historia</string>
+    <string name="date">Maanantai 26.4.2021</string>
+    <string name="reminders">Muistutukset</string>
     <string name="button_medicineButton">Lääkkeet</string>
     <string name="button_activityButton">Aktiivisuus</string>
     <string name="button_diaryButton">Päiväkirjat</string>
+    <string name="testi">medicine</string>
 </resources>

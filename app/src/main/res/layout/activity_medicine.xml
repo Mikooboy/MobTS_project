@@ -6,4 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".MedicineActivity">
 
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="322dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/medicationTitle"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="320dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText">
+
+        <Button
+            android:id="@+id/addMedicationButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@string/addMedication" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="@string/history" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="280dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:text="@string/date"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="320dp"
+        android:layout_height="372dp"
+        android:layout_marginTop="24dp"
+        android:background="#00000000"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateText"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="#1A000000"
+            android:gravity="center"
+            android:text="@string/reminders"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <ListView
+            android:id="@+id/medicationList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0D000000" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
