@@ -1,5 +1,7 @@
 package com.example.mobts_project;
 
+import androidx.annotation.NonNull;
+
 public class BloodSugar {
 
     private int bloodSugar;
@@ -20,5 +22,14 @@ public class BloodSugar {
     }
     public String getInfo(){
         return info;
+    }
+
+
+    @Override
+    public String toString() {
+        if (info == null){
+            info = "";
+        }
+        return bloodSugar + " " + info;
     }
 }

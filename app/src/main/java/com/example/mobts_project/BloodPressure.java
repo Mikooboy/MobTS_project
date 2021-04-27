@@ -12,7 +12,7 @@ public class BloodPressure {
         this.lowPress = lowPress;
         this.pulse = pulse;
     }
-    public BloodPressure(int highPress, int lowPress, int pulse,String info){
+    public BloodPressure(int highPress, int lowPress, int pulse, String info){
         this.highPress = highPress;
         this.lowPress = lowPress;
         this.pulse = pulse;
@@ -35,7 +35,10 @@ public class BloodPressure {
 
     @Override
     public String toString(){
-        return "Blood pressure: "+ highPress + "/" + lowPress + " pulse: " + pulse + info;
+        if (info == null){
+            info = "";
+        }
+        return "Blood pressure: "+ highPress + "/" + lowPress + " pulse: " + pulse + " " + info;
     }
 
 
