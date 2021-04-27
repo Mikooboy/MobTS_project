@@ -5,13 +5,20 @@ public class BloodPressure {
     private int highPress;
     private int lowPress;
     private int pulse;
+    private String info;
 
     public BloodPressure(int highPress, int lowPress, int pulse){
         this.highPress = highPress;
         this.lowPress = lowPress;
         this.pulse = pulse;
-
     }
+    public BloodPressure(int highPress, int lowPress, int pulse,String info){
+        this.highPress = highPress;
+        this.lowPress = lowPress;
+        this.pulse = pulse;
+        this.info = info;
+    }
+
 
     public int getHighPress(){
         return highPress;
@@ -21,6 +28,9 @@ public class BloodPressure {
     }
     public int getPulse(){
         return pulse;
+    }
+    public String getInfo(){
+        return info;
     }
 
     @Override
