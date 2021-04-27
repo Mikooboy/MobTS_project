@@ -9,19 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
-
-        <activity android:name=".DiariesActivity"
-                  android:parentActivityName=".MainActivity">
+        <activity android:name=".CaloriesActivity"></activity>
+        <activity android:name=".BloodPressureActivity" />
+        <activity android:name=".BloodSugarActivity" />
+        <activity
+            android:name=".DiariesActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-
-        <activity android:name=".ActivityActivity"
-                  android:parentActivityName=".MainActivity">
-        <meta-data
-        android:name="android.support.PARENT_ACTIVITY"
-        android:value=".MainActivity" />
+        <activity
+            android:name=".ActivityActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MedicineActivity"
@@ -30,7 +33,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
