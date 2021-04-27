@@ -8,5 +8,8 @@
     <string name="button_medicineButton">Lääkkeet</string>
     <string name="button_activityButton">Aktiivisuus</string>
     <string name="button_diaryButton">Päiväkirjat</string>
+    <string name="button_pressureButton">Verenpaine</string>
+    <string name="button_sugarsButton">Verensokeri</string>
+    <string name="button_caloriesButton">Kalorit</string>
     <string name="testi">medicine</string>
 </resources>
