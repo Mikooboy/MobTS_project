@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Diaries test = Diaries.getInstance();
-        test.getBloodPressures().add(new BloodPressure(120,80,70));
+        test.getBloodPressures().add(new BloodPressure(120,80,70,""));
 
         testi = test.getBloodPressures().get(0);
         testi2 = testi.toString();
