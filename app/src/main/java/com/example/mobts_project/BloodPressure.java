@@ -35,7 +35,7 @@ public class BloodPressure {
 
     @Override
     public String toString(){
-        return "Blood pressure: "+ highPress + "/" + lowPress + " pulse: " + pulse;
+        return "Blood pressure: "+ highPress + "/" + lowPress + " pulse: " + pulse + info;
     }
 
 
