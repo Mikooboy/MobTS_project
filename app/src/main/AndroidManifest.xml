@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
-        <activity android:name=".PressureHistory"></activity>
+        <activity android:name=".PressureHistory"
+            android:parentActivityName=".BloodPressureActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BloodPressureActivity" />
+        </activity>
         <activity
             android:name=".CaloriesActivity"
             android:parentActivityName=".DiariesActivity">

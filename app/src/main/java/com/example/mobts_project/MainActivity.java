@@ -18,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button medicine;
     Button diaries;
     Button activity;
-    BloodPressure testi;
-    String testi2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
