@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button medicine;
     Button diaries;
     Button activity;
-    BloodPressure testi;
-    String testi2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Diaries test = Diaries.getInstance();
-        test.getBloodPressures().add(new BloodPressure(120,80,70));
 
-        testi = test.getBloodPressures().get(0);
-        testi2 = testi.toString();
-        Log.d("TOIMIIKO", testi2);
 
 
     }
