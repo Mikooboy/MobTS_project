@@ -9,6 +9,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
+        <activity android:name=".PressureHistory"
+            android:parentActivityName=".BloodPressureActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BloodPressureActivity" />
+        </activity>
+        <activity
+            android:name=".CaloriesActivity"
+            android:parentActivityName=".DiariesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DiariesActivity" />
+        </activity>
+        <activity
+            android:name=".BloodPressureActivity"
+            android:parentActivityName=".DiariesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DiariesActivity" />
+        </activity>
+        <activity
+            android:name=".BloodSugarActivity"
+            android:parentActivityName=".DiariesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DiariesActivity" />
+        </activity>
+        <activity
+            android:name=".DiariesActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ActivityActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".MedicineActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
