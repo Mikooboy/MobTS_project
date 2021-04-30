@@ -70,6 +70,7 @@ public class AddMedicine extends AppCompatDialogFragment {
                 })
                 .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        ((MedicineActivity)getActivity()).updateReminders();
                         dialog.cancel();
                     }
                 });
