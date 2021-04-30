@@ -11,6 +11,8 @@
     <string name="button_pressureButton">Verenpaine</string>
     <string name="button_sugarsButton">Verensokeri</string>
     <string name="button_caloriesButton">Kalorit</string>
+    <string name="button_HistoryButton">Historia</string>
+    <string name="button_saveButton">Tallenna</string>
     <string name="testi">medicine</string>
     <string name="medicine_name">Lääke</string>
     <string name="button_addMedicine">Lisää</string>

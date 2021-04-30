@@ -21,4 +21,9 @@ public class BloodSugar {
     public String getInfo(){
         return info;
     }
+
+    @Override
+    public String toString(){
+        return "Blood sugar: "+ bloodSugar + " mmo/l " + info;
+    }
 }

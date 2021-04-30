@@ -4,10 +4,11 @@ public class Calories {
 
     int totalCal;
 
-    public Calories(){
+    public Calories(int totalCal){
 
-        totalCal = 0;
+        this.totalCal = totalCal;
     }
+
 
     public void addCalories(int added){
         totalCal += added;
@@ -20,5 +21,10 @@ public class Calories {
     }
     public void resetCalories(){
         totalCal = 0;
+    }
+
+    @Override
+    public String toString(){
+        return "Kalorit: " + totalCal + " Kcal";
     }
 }
