@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
+        <activity android:name=".MedicineHistoryDay" />
+        <activity android:name=".MedicineHistory" />
         <activity android:name=".PressureHistory"
             android:parentActivityName=".BloodPressureActivity">
             <meta-data
