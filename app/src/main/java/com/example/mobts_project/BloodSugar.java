@@ -1,19 +1,23 @@
 package com.example.mobts_project;
 
+import java.util.Date;
+
 public class BloodSugar {
 
     private int bloodSugar;
     private String info;
+    private String date;
 
     public BloodSugar(int bloodSugar){
 
         this.bloodSugar = bloodSugar;
     }
 
-    public BloodSugar(int bloodSugar, String info){
+    public BloodSugar(int bloodSugar, String info, String date){
 
         this.bloodSugar = bloodSugar;
         this.info = info;
+        this.date = date;
     }
     public int getBloodSugar(){
         return bloodSugar;
@@ -21,9 +25,12 @@ public class BloodSugar {
     public String getInfo(){
         return info;
     }
+    public String getDate(){
+        return date;
+    }
 
     @Override
     public String toString(){
-        return "Blood sugar: "+ bloodSugar + " mmo/l " + info;
+        return date + ": Blood sugar: "+ bloodSugar + " mmo/l " + info;
     }
 }

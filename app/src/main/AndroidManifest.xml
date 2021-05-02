@@ -36,19 +36,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BloodSugarActivity" />
         </activity>
-        <activity android:name=".CaloriesHistoryActivity"
-            android:parentActivityName=".CaloriesActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CaloriesActivity" />
-        </activity>
-        <activity
-            android:name=".CaloriesActivity"
-            android:parentActivityName=".DiariesActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DiariesActivity" />
-        </activity>
         <activity
             android:name=".BloodPressureActivity"
             android:parentActivityName=".DiariesActivity">

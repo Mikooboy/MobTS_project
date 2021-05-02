@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Diaries {
 
     private ArrayList<BloodPressure> bloodPressures;
-    private ArrayList<Calories> calories;
     private ArrayList<BloodSugar> bloodSugars;
 
     private static final Diaries ourInstance = new Diaries();
@@ -17,18 +16,21 @@ public class Diaries {
 
     private Diaries(){
         bloodPressures = new ArrayList<>();
-        calories = new ArrayList<>();
         bloodSugars = new ArrayList<>();
     }
     public ArrayList<BloodPressure> getBloodPressures() {
         return bloodPressures;
     }
-    public ArrayList<Calories> getCalories() {
-        return calories;
-    }
     public ArrayList<BloodSugar> getBloodSugars() {
         return bloodSugars;
     }
+    public ArrayList<BloodPressure> setBloodPressures(ArrayList<BloodPressure> list) {
+        return bloodPressures = list;
+    }
+    public ArrayList<BloodSugar> setBloodSugars(ArrayList<BloodSugar> list) {
+        return bloodSugars = list;
+    }
+
 
 
 
