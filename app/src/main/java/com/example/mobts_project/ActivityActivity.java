@@ -50,7 +50,7 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     String dateString;
     String lastDate = "";
 
-    SharedPreferences sharedPreferences;
+
     SharedPreferences.Editor prefEditor;
     SharedPreferences prefGet;
 
@@ -69,9 +69,8 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION},1 );
         }
 
-        sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
         prefGet = getSharedPreferences("myPrefs", MODE_PRIVATE);
-        prefEditor = sharedPreferences.edit();
+        prefEditor = prefGet.edit();
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         textView = findViewById(R.id.textView);
@@ -181,12 +180,12 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
 
     private void LoadSteps(){
 
-        previousSteps = sharedPreferences.getInt("steps",0);
+        previousSteps = prefGet.getInt("steps",0);
     }
 
     private void LoadDate(){
 
-        lastDate = sharedPreferences.getString("date", "");
+        lastDate = prefGet.getString("date", "");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
