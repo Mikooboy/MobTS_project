@@ -24,6 +24,7 @@ public class MedicineHistory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine_history);
+        
 
         ListView lv = findViewById(R.id.datesList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, loadDays());

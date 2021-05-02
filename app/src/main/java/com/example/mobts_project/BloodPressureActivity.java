@@ -36,6 +36,10 @@ public class BloodPressureActivity extends AppCompatActivity {
         lPress = findViewById(R.id.LowPressure);
         pulse = findViewById(R.id.Pulse);
 
+        inputInfo.setHint("Lisatiedot");
+        hPress.setHint("Yläpaine");
+        lPress.setHint("Alalapaine");
+        pulse.setHint("Pulssi");
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

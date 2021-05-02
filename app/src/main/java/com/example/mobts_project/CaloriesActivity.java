@@ -27,11 +27,13 @@ public class CaloriesActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.SaveCalories);
         calorieInput = findViewById(R.id.CalorieInput);
 
+        calorieInput.setHint("Kalorit");
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calories = Integer.parseInt(calorieInput.getText().toString());
-                Diaries.getInstance().getCalories().add(new Calories( calories));
+                Diaries.getInstance().getCalories().add(new Calories());
             }
         });
         historyButton.setOnClickListener(new View.OnClickListener() {

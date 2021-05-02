@@ -9,31 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
-        <activity android:name=".ActivityActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".ActivityHistory"
-            android:parentActivityName=".ActivityActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityActivity" />
-        </activity>
-        <activity android:name=".ActivitySettings"
-            android:parentActivityName=".ActivityActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityActivity" />
-        </activity>
-        <activity android:name=".ActivityHistoryDetails"
-            android:parentActivityName=".ActivityHistory">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityHistory" />
-        </activity>
-
         <activity android:name=".PressureHistory"
             android:parentActivityName=".BloodPressureActivity">
             <meta-data
@@ -63,6 +38,13 @@
         </activity>
         <activity
             android:name=".DiariesActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ActivityActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

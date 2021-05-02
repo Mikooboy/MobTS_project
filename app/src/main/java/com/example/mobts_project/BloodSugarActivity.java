@@ -30,6 +30,9 @@ public class BloodSugarActivity extends AppCompatActivity {
         historyButton = findViewById(R.id.HistorySugar);
         saveButton = findViewById(R.id.SaveSugar);
 
+        inputInfo.setHint("Lisätiedot");
+        bloodSugarNumber.setHint("Verensokeriarvot");
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
