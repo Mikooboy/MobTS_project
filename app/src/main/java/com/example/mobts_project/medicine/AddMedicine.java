@@ -1,4 +1,4 @@
-package com.example.mobts_project;
+package com.example.mobts_project.medicine;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,15 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.example.mobts_project.R;
+
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
+import java.util.Objects;
 
 public class AddMedicine extends AppCompatDialogFragment {
 
@@ -37,40 +36,40 @@ public class AddMedicine extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // Get medicine name and reminder days
-                        EditText name = (EditText) v.findViewById(R.id.medicineName);
+                        EditText name = v.findViewById(R.id.medicineName);
                         ArrayList<String> days = new ArrayList<String>();
 
-                        CheckBox ma = (CheckBox) v.findViewById(R.id.ma);
-                        CheckBox ti = (CheckBox) v.findViewById(R.id.ti);
-                        CheckBox ke = (CheckBox) v.findViewById(R.id.ke);
-                        CheckBox to = (CheckBox) v.findViewById(R.id.to);
-                        CheckBox pe = (CheckBox) v.findViewById(R.id.pe);
-                        CheckBox la = (CheckBox) v.findViewById(R.id.la);
-                        CheckBox su = (CheckBox) v.findViewById(R.id.su);
+                        CheckBox ma = v.findViewById(R.id.ma);
+                        CheckBox ti = v.findViewById(R.id.ti);
+                        CheckBox ke = v.findViewById(R.id.ke);
+                        CheckBox to = v.findViewById(R.id.to);
+                        CheckBox pe = v.findViewById(R.id.pe);
+                        CheckBox la = v.findViewById(R.id.la);
+                        CheckBox su = v.findViewById(R.id.su);
 
-                        if(ma.isChecked())
+                        if (ma.isChecked())
                             days.add("ma");
-                        if(ti.isChecked())
+                        if (ti.isChecked())
                             days.add("ti");
-                        if(ke.isChecked())
+                        if (ke.isChecked())
                             days.add("ke");
-                        if(to.isChecked())
+                        if (to.isChecked())
                             days.add("to");
-                        if(pe.isChecked())
+                        if (pe.isChecked())
                             days.add("pe");
-                        if(la.isChecked())
+                        if (la.isChecked())
                             days.add("la");
-                        if(su.isChecked())
+                        if (su.isChecked())
                             days.add("su");
 
-                        Medicines instance = Medicines.getInstance();
+                        MedicineLists instance = MedicineLists.getInstance();
                         instance.getMedications().add(new Medicine(name.getText().toString(), days));
-                        ((MedicineActivity)getActivity()).updateReminders();
+                        ((MedicineActivity) Objects.requireNonNull(getActivity())).saveMedicines();
+                        ((MedicineActivity) Objects.requireNonNull(getActivity())).updateReminders();
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        ((MedicineActivity)getActivity()).updateReminders();
                         dialog.cancel();
                     }
                 });

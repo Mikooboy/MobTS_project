@@ -1,21 +1,15 @@
-package com.example.mobts_project;
+package com.example.mobts_project.medicine;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import com.example.mobts_project.R;
 
 public class MedicineHistory extends AppCompatActivity {
     public static final String EXTRA = "com.example.MobTS_project.EXTRA";
@@ -27,7 +21,7 @@ public class MedicineHistory extends AppCompatActivity {
         
 
         ListView lv = findViewById(R.id.datesList);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, loadDays());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, DaysDataHandler.getInstance().loadDays(this));
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -38,20 +32,5 @@ public class MedicineHistory extends AppCompatActivity {
                 startActivity(nextActivity);
             }
         });
-    }
-
-    public ArrayList<String> loadDays() {
-        SharedPreferences prefGet = getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
-
-        Gson gson = new Gson();
-        String jsonDates = prefGet.getString("dates", null);
-        Type type = new TypeToken<ArrayList<String>>() {}.getType();
-        ArrayList<String> dates = gson.fromJson(jsonDates, type);
-
-        if (dates == null) {
-            dates = new ArrayList<String>();
-        }
-
-        return dates;
     }
 }
