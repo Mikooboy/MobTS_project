@@ -11,7 +11,6 @@ public class DiariesActivity extends AppCompatActivity {
 
     Button bloodPressureButton;
     Button bloodSugarsButton;
-    Button caloriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,6 @@ public class DiariesActivity extends AppCompatActivity {
 
         bloodPressureButton = findViewById(R.id.PressureButton);
         bloodSugarsButton = findViewById(R.id.SugarsButton);
-        caloriesButton = findViewById(R.id.CaloriesButton);
 
         bloodPressureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,13 +31,6 @@ public class DiariesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent nextActivity = new Intent(DiariesActivity.this, BloodSugarActivity.class);
-                startActivity(nextActivity);
-            }
-        });
-        caloriesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextActivity = new Intent(DiariesActivity.this, CaloriesActivity.class);
                 startActivity(nextActivity);
             }
         });
