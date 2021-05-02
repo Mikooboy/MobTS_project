@@ -27,6 +27,8 @@ public class CaloriesActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.SaveCalories);
         calorieInput = findViewById(R.id.CalorieInput);
 
+        calorieInput.setHint("Kalorit");
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
