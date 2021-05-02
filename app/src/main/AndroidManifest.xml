@@ -51,6 +51,28 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".ActivitySettings"
+            android:parentActivityName=".ActivityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityActivity" />
+        </activity>
+        <activity
+            android:name=".ActivityHistory"
+            android:parentActivityName=".ActivityActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityActivity" />
+        </activity>
+        <activity
+            android:name=".ActivityHistoryDetails"
+            android:parentActivityName=".ActivityHistory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityActivity" />
+        </activity>
+
+        <activity
             android:name=".MedicineActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
