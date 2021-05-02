@@ -9,6 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
+        <activity
+            android:name=".MedicineHistoryDay"
+            android:parentActivityName=".MedicineHistory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MedicineHistory" />
+        </activity>
+        <activity
+            android:name=".MedicineHistory"
+            android:parentActivityName=".MedicineActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MedicineActivity" />
+        </activity>
+        <activity
+            android:name=".CaloriesHistoryActivity"
+            android:parentActivityName=".CaloriesActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".CaloriesActivity" />
+        </activity>
+        <activity
+            android:name=".SugarsHistoryActivity"
+            android:parentActivityName=".BloodSugarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BloodSugarActivity" />
+        </activity>
         <activity android:name=".PressureHistory"
             android:parentActivityName=".BloodPressureActivity">
             <meta-data

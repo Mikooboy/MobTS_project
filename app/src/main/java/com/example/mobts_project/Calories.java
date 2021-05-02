@@ -4,9 +4,9 @@ public class Calories {
 
     int totalCal;
 
-    public Calories(int totalCal){
+    public Calories(){
 
-        this.totalCal = totalCal;
+        totalCal = 0;
     }
 
 

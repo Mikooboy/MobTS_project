@@ -31,7 +31,7 @@ public class CaloriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 calories = Integer.parseInt(calorieInput.getText().toString());
-                Diaries.getInstance().getCalories().add(new Calories( calories));
+                Diaries.getInstance().getCalories().add(new Calories());
             }
         });
         historyButton.setOnClickListener(new View.OnClickListener() {
