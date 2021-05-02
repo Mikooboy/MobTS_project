@@ -12,18 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
 
-        <activity android:name=".MedicineHistoryDay"
-            android:parentActivityName=".MedicineHistory">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MedicineHistory" />
-        </activity>
-        <activity android:name=".MedicineHistory"
-            android:parentActivityName=".MedicineActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MedicineActivity" />
-        </activity>
+        <activity android:name=".medicine.MedicineHistoryDay" />
+        <activity android:name=".medicine.MedicineHistory" />
         <activity android:name=".PressureHistory"
             android:parentActivityName=".BloodPressureActivity">
             <meta-data
@@ -89,7 +79,7 @@
 
 
         <activity
-            android:name=".MedicineActivity"
+            android:name=".medicine.MedicineActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

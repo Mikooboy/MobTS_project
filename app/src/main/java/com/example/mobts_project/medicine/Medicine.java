@@ -1,12 +1,10 @@
-package com.example.mobts_project;
+package com.example.mobts_project.medicine;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 
 public class Medicine {
-    private String name;
-    private ArrayList<String> days;
+    private final String name;
+    private final ArrayList<String> days;
 
 
     public Medicine(String name, ArrayList<String> days) {

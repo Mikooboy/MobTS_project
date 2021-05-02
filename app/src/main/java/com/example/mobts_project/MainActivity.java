@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobts_project.medicine.MedicineActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
