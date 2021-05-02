@@ -1,12 +1,12 @@
 package com.example.mobts_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BloodSugarActivity extends AppCompatActivity {
 
@@ -17,13 +17,14 @@ public class BloodSugarActivity extends AppCompatActivity {
 
     String information;
     int bloodSugars;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blood_sugar);
 
-        Intent intent = getIntent();
+        intent = getIntent();
 
         inputInfo = findViewById(R.id.SugarInfoText);
         bloodSugarNumber = findViewById(R.id.SugarNumber);

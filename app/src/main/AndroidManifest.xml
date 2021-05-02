@@ -37,6 +37,14 @@
                 android:value=".DiariesActivity" />
         </activity>
         <activity
+            android:name=".SugarsHistoryActivity"
+            android:parentActivityName=".BloodSugarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BloodSugarActivity" />
+        </activity>
+
+        <activity
             android:name=".DiariesActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -71,6 +79,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityActivity" />
         </activity>
+
 
         <activity
             android:name=".MedicineActivity"
