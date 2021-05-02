@@ -21,6 +21,6 @@ public class Steps {
     @NonNull
     @Override
     public String toString() {
-        return date + " " + steps;
+        return date + "  Steps: " + steps;
     }
 }

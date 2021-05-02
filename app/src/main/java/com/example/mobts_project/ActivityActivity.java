@@ -38,8 +38,9 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
 
     int stepCounter = 0;
     int previousSteps = 0;
-    int currentSteps = stepCounter - previousSteps;
-    int stepGoal = 10000;
+    int currentSteps = 0;
+    int stepGoal;
+
 
     ProgressBar progressBar;
     Button settingButton;
@@ -53,13 +54,15 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     SharedPreferences.Editor prefEditor;
     SharedPreferences prefGet;
 
-
+    private static ActivityActivity instance;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity);
+        instance = this;
+
         if(ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
             //ask for permission
@@ -77,6 +80,7 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         settingButton = findViewById(R.id.setting_button);
         historyButton = findViewById(R.id.history_button);
 
+        stepGoal = prefGet.getInt("StepGoal", 10000);
         progressBar = findViewById(R.id.progress_bar);
         progressBar.setMax(stepGoal);
         progressBar.setProgress(currentSteps);
@@ -95,7 +99,8 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-
+                Intent nextActivity = new Intent(ActivityActivity.this, ActivitySettings.class);
+                startActivity(nextActivity);
             }
         });
         historyButton.setOnClickListener(new View.OnClickListener() {
@@ -113,20 +118,17 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("Testi1" , " testi: "+lastDate);
+        Log.d("date" , " testi1: "+lastDate);
         LoadDate();
-        Log.d("Testi2" , " testi: "+lastDate);
+        Log.d("date" , " testi2: "+lastDate);
         dateString = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
         if(lastDate.equals("")){
             String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
             prefEditor.putString("date", startDate);
             prefEditor.apply();
             LoadDate();
-            Log.d("Testi4" , lastDate);
+            Log.d("date3" , lastDate);
         }
-
-
-
 
     }
 
@@ -138,7 +140,6 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
             currentSteps = stepCounter - previousSteps;
             textView.setText(String.valueOf(currentSteps));
             progressBar.setProgress(currentSteps);
-
         }
     }
 
@@ -150,11 +151,17 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onResume() {
         super.onResume();
+        stepGoal = prefGet.getInt("StepGoal", 10000);
+        progressBar.setMax(stepGoal);
         LoadSteps();
+        LoadDate();
+        Log.d("Step", String.valueOf(stepGoal));
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
             sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
         }
+        textView.setText(String.valueOf(currentSteps));
+        progressBar.setProgress(currentSteps);
 
     }
 
@@ -165,21 +172,25 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
             sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
         }
+        prefEditor.putInt("savedSteps" , currentSteps);
     }
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 
     private void LoadSteps(){
+
         previousSteps = sharedPreferences.getInt("steps",0);
     }
 
     private void LoadDate(){
+
         lastDate = sharedPreferences.getString("date", "");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void DailyReset(){
+    public void DailyReset(){
         LoadDate();
         LoadSteps();
         Log.d("Step1", "" + previousSteps);
@@ -190,10 +201,13 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         StepData.getInstance().getStepsList().add(new Steps(currentSteps, lastDate));
         Gson gson = new Gson();
         String json = gson.toJson(StepData.getInstance().getStepsList());
+        Log.d("JSOn", json);
         prefEditor.putString("lista", json);
         prefEditor.putInt("steps", stepCounter);
         prefEditor.putString("date", dateString);
         prefEditor.commit();
+        textView.setText(String.valueOf(currentSteps));
+        progressBar.setProgress(currentSteps);
     }
     public void LoadList() {
         Gson gson = new Gson();
@@ -204,6 +218,9 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         if (StepData.getInstance().getStepsList() == null) {
             StepData.getInstance().setStepsList(new ArrayList<Steps>());
         }
+    }
+    public static ActivityActivity getInstance(){
+        return instance;
     }
 
 }
