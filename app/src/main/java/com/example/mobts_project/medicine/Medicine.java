@@ -1,13 +1,14 @@
-package com.example.mobts_project;
+package com.example.mobts_project.medicine;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 
+/**
+ * Simple class to hold the medicine name and reminder days
+ * @author Miko Laasanen
+ */
 public class Medicine {
-    private String name;
-    private ArrayList<String> days;
-
+    private final String name;
+    private final ArrayList<String> days;
 
     public Medicine(String name, ArrayList<String> days) {
         this.name = name;
