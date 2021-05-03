@@ -40,7 +40,7 @@ public class BloodSugarActivity extends AppCompatActivity {
 
         intent = getIntent();
 
-        prefGet = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        prefGet = getSharedPreferences("myPrefs", MODE_PRIVATE);
         prefEditor = prefGet.edit();
 
         inputInfo = findViewById(R.id.SugarInfoText);
@@ -63,7 +63,7 @@ public class BloodSugarActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 String json = gson.toJson(Diaries.getInstance().getBloodSugars());
                 Log.d("JSOn", json);
-                prefEditor.putString("lista", json);
+                prefEditor.putString("sokerilista", json);
                 prefEditor.commit();
 
             }
@@ -73,7 +73,7 @@ public class BloodSugarActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Gson gson = new Gson();
-                String json = prefGet.getString("lista", null);
+                String json = prefGet.getString("sokerilista", null);
                 Type type = new TypeToken<ArrayList<BloodSugar>>() {}.getType();
                 Diaries.getInstance().setBloodSugars(gson.fromJson(json, type));
 

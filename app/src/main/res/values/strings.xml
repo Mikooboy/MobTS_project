@@ -13,15 +13,18 @@
     <string name="button_caloriesButton">Kalorit</string>
     <string name="button_HistoryButton">Historia</string>
     <string name="button_saveButton">Tallenna</string>
+    <string name="button_deleteButton">Poista</string>
+    <string name="button_cancelButton">Peruuta</string>
+    <string name="button_confirmButton">Vahvista</string>
     <string name="testi">medicine</string>
     <string name="medicine_name">Lääke</string>
     <string name="button_addMedicine">Lisää</string>
     <string name="button_cancel">Peruuta</string>
     <string name="button_removeMedicine">Poista lääke</string>
     <string name="button_remove">Poista</string>
-    <string name="settings">Settings</string>
-    <string name="resetText">Click Button to save and reset steps</string>
-    <string name="stepGoalInfo">Set number to change daily step goal. Default 10 000</string>
+    <string name="settings">Asetukset</string>
+    <string name="resetText">Paina nappia tallentaaksesi sekä nollaa askeleet</string>
+    <string name="stepGoalInfo">Aseta askeltavoitteesi. Vakio 10 000</string>
 
 
 </resources>
