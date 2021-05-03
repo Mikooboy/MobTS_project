@@ -19,6 +19,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Main activity in the BloodPressure tab
+ */
+
 public class BloodPressureActivity extends AppCompatActivity {
 
     Button historyButton;

@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+/**
+ * Class used for displaying information of the day
+ * the day's information can be deleted from here as well
+ */
+
 public class PressureHistoryDetails extends AppCompatActivity {
 
     Intent intent;

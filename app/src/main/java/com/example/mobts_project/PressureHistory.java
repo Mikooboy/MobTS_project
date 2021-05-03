@@ -17,6 +17,11 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * Class used for displaying a listView of days and bloodpressure values in the history screen
+ * the information of the day is accessed from here
+ */
+
 public class PressureHistory extends AppCompatActivity {
 
     public static final String DATE = "com.example.MobTS_project.MESSAGE_pressure1";

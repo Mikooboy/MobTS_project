@@ -19,6 +19,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Main activity in the BloodSugar tab
+ */
+
 public class BloodSugarActivity extends AppCompatActivity {
 
     TextView inputInfo;
@@ -50,6 +54,7 @@ public class BloodSugarActivity extends AppCompatActivity {
 
         inputInfo.setHint("Lisätiedot");
         bloodSugarNumber.setHint("Verensokeriarvot");
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

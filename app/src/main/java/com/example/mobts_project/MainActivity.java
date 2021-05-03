@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobts_project.medicine.MedicineActivity;
 
+/**
+ * Main activity works as a launcher for Diaries, Medicine and Activity activities
+ */
 
 public class MainActivity extends AppCompatActivity {
 

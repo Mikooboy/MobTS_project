@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Activity for launching diaries BloodSugar and BloodPressure
+ */
+
 public class DiariesActivity extends AppCompatActivity {
 
     Button bloodPressureButton;
