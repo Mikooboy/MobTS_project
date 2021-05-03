@@ -11,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
-        <activity android:name=".SugarsHistoryDetails"
+
+        <activity android:name=".PressureHistoryDetails"
+            android:parentActivityName=".PressureHistory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PressureHistory" />
+        </activity>
+        <activity
+            android:name=".SugarsHistoryDetails"
             android:parentActivityName=".SugarsHistoryActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

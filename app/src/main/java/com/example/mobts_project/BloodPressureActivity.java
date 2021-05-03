@@ -43,7 +43,7 @@ public class BloodPressureActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        prefGet = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        prefGet = getSharedPreferences("myPrefs", MODE_PRIVATE);
         prefEditor = prefGet.edit();
 
         historyButton = findViewById(R.id.HistoryPressure);
@@ -72,7 +72,7 @@ public class BloodPressureActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 String json = gson.toJson(Diaries.getInstance().getBloodPressures());
                 Log.d("JSOn", json);
-                prefEditor.putString("lista", json);
+                prefEditor.putString("painelista", json);
                 prefEditor.commit();
             }
         });
@@ -81,7 +81,7 @@ public class BloodPressureActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Gson gson = new Gson();
-                String json = prefGet.getString("lista", null);
+                String json = prefGet.getString("painelista", null);
                 Type type = new TypeToken<ArrayList<BloodPressure>>() {}.getType();
                 Diaries.getInstance().setBloodPressures(gson.fromJson(json, type));
 

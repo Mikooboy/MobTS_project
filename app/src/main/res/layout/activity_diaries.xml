@@ -36,9 +36,10 @@
 
     <Button
         android:id="@+id/PressureButton"
-        android:layout_width="190dp"
-        android:layout_height="70dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
         android:text="@string/button_pressureButton"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,9 +47,10 @@
 
     <Button
         android:id="@+id/SugarsButton"
-        android:layout_width="190dp"
-        android:layout_height="70dp"
+        android:layout_width="260dp"
+        android:layout_height="57dp"
         android:text="@string/button_sugarsButton"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

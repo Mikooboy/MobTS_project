@@ -34,6 +34,10 @@ public class BloodPressure {
     public String getInfo(){
         return info;
     }
+    public String getDate(){
+        return date;
+    }
+
 
     @Override
     public String toString(){
