@@ -33,6 +33,6 @@ public class BloodSugar {
 
     @Override
     public String toString(){
-        return date + ": Blood sugar: "+ bloodSugar + " mmo/l " + info;
+        return date;
     }
 }
