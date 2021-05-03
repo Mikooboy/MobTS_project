@@ -11,92 +11,117 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
-
-        <activity android:name=".PressureHistoryDetails"
-            android:parentActivityName=".PressureHistory">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PressureHistory" />
-        </activity>
-        <activity
-            android:name=".SugarsHistoryDetails"
-            android:parentActivityName=".SugarsHistoryActivity">
+        <activity android:name=".SugarsHistoryDetails"
+            android:parentActivityName=".SugarsHistoryActivity"
+            android:label="Päivän tiedot">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SugarsHistoryActivity" />
         </activity>
-        <activity android:name=".medicine.MedicineHistoryDay" />
-        <activity android:name=".medicine.MedicineHistory" />
+
+        <activity android:name=".medicine.MedicineHistoryDay"
+            android:parentActivityName=".medicine.MedicineHistory"
+            android:label="Päivän tiedot">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".medicine.MedicineHistory" />
+        </activity>
+
+        <activity android:name=".medicine.MedicineHistory"
+            android:parentActivityName=".medicine.MedicineActivity"
+            android:label="Historia">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".medicine.MedicineActivity" />
+        </activity>
+
         <activity
             android:name=".PressureHistory"
-            android:parentActivityName=".BloodPressureActivity">
+            android:parentActivityName=".BloodPressureActivity"
+            android:label="Historia">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BloodPressureActivity" />
         </activity>
+
         <activity
             android:name=".SugarsHistoryActivity"
-            android:parentActivityName=".BloodSugarActivity">
+            android:parentActivityName=".BloodSugarActivity"
+            android:label="Historia">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BloodSugarActivity" />
         </activity>
+
         <activity
             android:name=".BloodPressureActivity"
-            android:parentActivityName=".DiariesActivity">
+            android:parentActivityName=".DiariesActivity"
+            android:label="Verenpaine">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DiariesActivity" />
         </activity>
+
         <activity
             android:name=".BloodSugarActivity"
-            android:parentActivityName=".DiariesActivity">
+            android:parentActivityName=".DiariesActivity"
+            android:label="Verensokeri">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DiariesActivity" />
         </activity>
+
         <activity
             android:name=".DiariesActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="Päiväkirjat">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".ActivityActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="Aktiivisuus">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ActivitySettings"
-            android:parentActivityName=".ActivityActivity">
+            android:parentActivityName=".ActivityActivity"
+            android:label="Asetukset">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityActivity" />
         </activity>
         <activity
             android:name=".ActivityHistory"
-            android:parentActivityName=".ActivityActivity">
+            android:parentActivityName=".ActivityActivity"
+            android:label="Historia">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityActivity" />
         </activity>
         <activity
             android:name=".ActivityHistoryDetails"
-            android:parentActivityName=".ActivityHistory">
+            android:parentActivityName=".ActivityHistory"
+            android:label="Päivän tiedot">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityActivity" />
         </activity>
+
         <activity
             android:name=".medicine.MedicineActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="Lääkkeet">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

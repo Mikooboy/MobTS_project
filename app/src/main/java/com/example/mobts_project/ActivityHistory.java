@@ -18,9 +18,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ActivityHistory extends AppCompatActivity {
-    public static final String DATE = "com.example.exercise_6.MESSAGE";
-    public static final String STEPS = "com.example.exercise_6.MESSAGE2";
-    public static final String INDEX = "com.example.exercise_6.MESSAGE3";
+    public static final String DATE = "com.example.MobTS_project.STEPDATE";
+    public static final String STEPS = "com.example.exercise_6.STEPS";
+    public static final String INDEX = "com.example.exercise_6.STEPINDEX";
     SharedPreferences prefGet;
     SharedPreferences.Editor prefEditor;
 
@@ -56,8 +56,11 @@ public class ActivityHistory extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Same as LoadList() in ActivityActivity
+        //Get json string and makes it a ArrayList
         Gson gson = new Gson();
-        String json = prefGet.getString("lista", null);
+        String json = prefGet.getString("StepList", null);
         Type type = new TypeToken<ArrayList<Steps>>() {}.getType();
         StepData.getInstance().setStepsList(gson.fromJson(json, type));
 

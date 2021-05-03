@@ -41,6 +41,7 @@ public class ActivityHistoryDetails extends AppCompatActivity {
         Log.d("Date", ""+ date);
         Log.d("Steps", ""+ steps);
 
+
         dateText = findViewById(R.id.dateTextView);
         stepsText = findViewById(R.id.stepsTextView);
         cancelButton = findViewById(R.id.cancelDeleteButton);
@@ -54,55 +55,65 @@ public class ActivityHistoryDetails extends AppCompatActivity {
         stepsText.setText(String.valueOf(steps));
 
 
-
-
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // makes cancel and confirm buttons visible to verify deleting
                 if (confirmButton.getVisibility() == View.INVISIBLE){
-                    ShowButtons(confirmButton);
-                    ShowButtons(cancelButton);
+                    ShowButton(confirmButton);
+                    ShowButton(cancelButton);
                 }
             }
         });
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // hides buttons so deleting is canceled
                 if (cancelButton.getVisibility() != View.INVISIBLE){
-                    HideButtons(confirmButton);
-                    HideButtons(cancelButton);
+                    HideButton(confirmButton);
+                    HideButton(cancelButton);
                 }
             }
         });
+
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // removes the current element shown from StepList and saves it to sharedPreferences
                 StepData.getInstance().getStepsList().remove(index);
                 Gson gson = new Gson();
                 String json = gson.toJson(StepData.getInstance().getStepsList());
                 Log.d("JSOn", json);
-                prefEditor.putString("lista", json);
+                prefEditor.putString("StepList", json);
                 prefEditor.commit();
-
+                // puts cancel and confirm buttons back to invisible
                 if (cancelButton.getVisibility() != View.INVISIBLE){
-                    HideButtons(confirmButton);
-                    HideButtons(cancelButton);
+                    HideButton(confirmButton);
+                    HideButton(cancelButton);
                 }
-
+                // returns to ActivityHistory (parent activity)
+                Intent parentActivity  = new Intent(ActivityHistoryDetails.this, ActivityHistory.class);
+                startActivity(parentActivity);
             }
         });
 
     }
 
 
-    private void ShowButtons(Button button){
-
+    /**
+     * makes button visible
+     * @param button
+     */
+    private void ShowButton(Button button){
         button.setVisibility(View.VISIBLE);
-
     }
-    private void HideButtons(Button button){
-        button.setVisibility(View.INVISIBLE);
 
+    /**
+     * makes button invisible
+     * @param button
+     */
+    private void HideButton(Button button){
+        button.setVisibility(View.INVISIBLE);
     }
 
 }
