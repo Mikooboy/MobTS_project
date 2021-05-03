@@ -89,7 +89,7 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
             StepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         } else{
-            textView.setText("Sensor not found");
+            textView.setText("Sensoria ei havaittu");
 
         }
         settingButton.setOnClickListener(new View.OnClickListener() {

@@ -41,6 +41,7 @@ public class ActivityHistoryDetails extends AppCompatActivity {
         Log.d("Date", ""+ date);
         Log.d("Steps", ""+ steps);
 
+
         dateText = findViewById(R.id.dateTextView);
         stepsText = findViewById(R.id.stepsTextView);
         cancelButton = findViewById(R.id.cancelDeleteButton);
@@ -88,6 +89,8 @@ public class ActivityHistoryDetails extends AppCompatActivity {
                     HideButtons(confirmButton);
                     HideButtons(cancelButton);
                 }
+                Intent parentActivity  = new Intent(ActivityHistoryDetails.this, ActivityHistory.class);
+                startActivity(parentActivity);
 
             }
         });

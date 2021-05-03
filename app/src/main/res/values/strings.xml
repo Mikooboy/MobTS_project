@@ -23,8 +23,8 @@
     <string name="button_removeMedicine">Poista lääke</string>
     <string name="button_remove">Poista</string>
     <string name="settings">Asetukset</string>
-    <string name="resetText">Paina nappia tallentaaksesi sekä nollaa askeleet</string>
-    <string name="stepGoalInfo">Aseta askeltavoitteesi. Vakio 10 000</string>
+    <string name="resetText">Paina nappia tallentaaksesi sekä nollaaksesi askeleet</string>
+    <string name="stepGoalInfo">Aseta päivittäinen askeltavoitteesi. Vakio 10 000</string>
 
 
 </resources>
