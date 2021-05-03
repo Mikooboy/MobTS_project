@@ -12,7 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -63,14 +62,13 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
 
         if(ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
-            //ask for permission
+            // ask for permission to access activity information (steps etc.)
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION},1 );
         }
 
         prefGet = getSharedPreferences("myPrefs", MODE_PRIVATE);
         prefEditor = prefGet.edit();
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         textView = findViewById(R.id.textView);
         textView.setText("0");
 
@@ -84,7 +82,7 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
-
+        // check if device has step counter sensor
         if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)!= null){
             StepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
@@ -127,11 +125,14 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
 
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor == StepSensor){
+            // Gets the number of steps from step counter sensor, since last reboot
             stepCounter = (int) event.values[0];
+            // to get daily steps, previous steps are stepCounter values saved on last DailyReset()
             currentSteps = stepCounter - previousSteps;
             textView.setText(String.valueOf(currentSteps));
             progressBar.setProgress(currentSteps);
@@ -146,14 +147,17 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onResume() {
         super.onResume();
+        // updates  step goal and progress bar in case user has changed it
         stepGoal = prefGet.getInt("StepGoal", 10000);
         progressBar.setMax(stepGoal);
+        // updates previousSteps and lastDate
         LoadSteps();
         LoadDate();
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
             sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
         }
+        // Updates progress bar and text
         textView.setText(String.valueOf(currentSteps));
         progressBar.setProgress(currentSteps);
 
@@ -163,22 +167,30 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onPause() {
         super.onPause();
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
-            sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
-        }
         prefEditor.putInt("savedSteps" , currentSteps);
     }
-
+    /**
+     * Makes previousSteps equal to stepCounters value saved on DailyReset()
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
-
     private void LoadSteps(){
 
         previousSteps = prefGet.getInt("steps",0);
     }
+
+    /**
+     * Makes lastDate equal to date saved on DailyReset()
+     */
     private void LoadDate(){
 
         lastDate = prefGet.getString("StepDate", "");
     }
+
+    /**
+     * Gets list from StepData singleton class, makes it into a json string and saves it to sharedPreferences.
+     * Saves stepCounters value and current date to sharedPreferences
+     * updates text and progress bar
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void DailyReset(){
         LoadDate();
@@ -195,6 +207,11 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         textView.setText(String.valueOf(currentSteps));
         progressBar.setProgress(currentSteps);
     }
+
+    /**
+     * Gets json string from sharedPreferences, makes it into a ArrayList and sets it into StepData singleton class
+     * if StepData has no list it makes a empty one
+     */
     public void LoadList() {
         Gson gson = new Gson();
         String json = prefGet.getString("StepList", null);

@@ -42,6 +42,8 @@ public class ActivitySettings extends AppCompatActivity {
         setButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // gets users input and makes it the current step goal by saving it to sharedPreferences
+                // step goal is taken from sharedPreferences at ActivityActivity
                 stepGoal = Integer.parseInt(stepGoalText.getText().toString());
                 Log.d("StepGoal" , String.valueOf(stepGoal));
                 prefEditor.putInt("StepGoal", stepGoal);
@@ -49,9 +51,11 @@ public class ActivitySettings extends AppCompatActivity {
 
             }
         });
+
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // makes cancel and confirm buttons visible to verify reset
                 if (confirmButton.getVisibility() == View.INVISIBLE){
                     ShowButtons(confirmButton);
                     ShowButtons(cancelButton);
@@ -61,6 +65,7 @@ public class ActivitySettings extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // puts cancel and confirm buttons back to invisible, reset is canceled
                 if (cancelButton.getVisibility() != View.INVISIBLE){
                     HideButtons(confirmButton);
                     HideButtons(cancelButton);
@@ -70,7 +75,9 @@ public class ActivitySettings extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // calls for DailyReset() at ActivityActivity to reset steps and save them
                 ActivityActivity.getInstance().DailyReset();
+                // puts cancel and confirm buttons back to invisible
                 if (cancelButton.getVisibility() != View.INVISIBLE){
                     HideButtons(confirmButton);
                     HideButtons(cancelButton);
@@ -79,11 +86,19 @@ public class ActivitySettings extends AppCompatActivity {
             }
         });
     }
+    /**
+     * makes button visible
+     * @param button
+     */
     private void ShowButtons(Button button){
 
         button.setVisibility(View.VISIBLE);
 
     }
+    /**
+     * makes button invisible
+     * @param button
+     */
     private void HideButtons(Button button){
        button.setVisibility(View.INVISIBLE);
 

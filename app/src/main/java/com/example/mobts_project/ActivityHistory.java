@@ -56,6 +56,9 @@ public class ActivityHistory extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Same as LoadList() in ActivityActivity
+        //Get json string and makes it a ArrayList
         Gson gson = new Gson();
         String json = prefGet.getString("StepList", null);
         Type type = new TypeToken<ArrayList<Steps>>() {}.getType();
