@@ -17,6 +17,9 @@ import com.example.mobts_project.R;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Creates the Dialog that is used for adding medicines.
+ */
 public class AddMedicine extends AppCompatDialogFragment {
 
     @NonNull

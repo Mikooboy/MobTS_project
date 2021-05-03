@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
+/**
+ * Main activity in the medicine tab
+ */
 public class MedicineActivity extends AppCompatActivity {
     private String date;
     private String day;
@@ -86,16 +89,28 @@ public class MedicineActivity extends AppCompatActivity {
         DaysDataHandler.getInstance().saveDays(names, this);
     }
 
-    public void openAddMedicine(View v) {
+    /**
+     * Opens the dialog to add a medicine
+     * @param view
+     */
+    public void openAddMedicine(View view) {
         AddMedicine addMedicine = new AddMedicine();
         addMedicine.show(getSupportFragmentManager(), "aMedicine");
     }
 
-    public void openRemoveMedicine(View v) {
+    /**
+     * Opens the dialog to remove a medicine
+     * @param view
+     */
+    public void openRemoveMedicine(View view) {
         RemoveMedicine removeMedicine = new RemoveMedicine();
         removeMedicine.show(getSupportFragmentManager(), "rMedicine");
     }
 
+    /**
+     * Updates the reminder listView on the activity after a change
+     * Also sets the checkbox states
+     */
     public void updateReminders() {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Medicine> medicines = MedicineLists.getInstance().getTodaysMedications(this);
@@ -143,6 +158,9 @@ public class MedicineActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Saves all the medicines in a list
+     */
     public void saveMedicines() {
         SharedPreferences prefPut = getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
@@ -154,6 +172,9 @@ public class MedicineActivity extends AppCompatActivity {
         prefEditor.apply();
     }
 
+    /**
+     * Loads all the medicines from a list
+     */
     public void loadMedicines() {
         SharedPreferences prefGet = getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
 

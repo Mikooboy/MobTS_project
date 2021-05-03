@@ -16,6 +16,9 @@ import com.example.mobts_project.R;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Creates the Dialog that is used for removing medicines.
+ */
 public class RemoveMedicine extends AppCompatDialogFragment {
 
     @NonNull

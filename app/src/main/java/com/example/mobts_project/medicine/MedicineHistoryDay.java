@@ -14,6 +14,10 @@ import com.example.mobts_project.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class displays a page similar to the main medicine activity
+ * but for a date selected in the history screen
+ */
 public class MedicineHistoryDay extends AppCompatActivity {
     private String date;
 

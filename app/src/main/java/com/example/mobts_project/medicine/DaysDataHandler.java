@@ -17,18 +17,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
+/**
+ * Singleton class that handles saving the data (medicines and checkboxes) for a specific date.
+ */
 public class DaysDataHandler {
     private static final DaysDataHandler ourInstance = new DaysDataHandler();
 
     private DaysDataHandler() {
         LocalDate localDate = LocalDate.now();
-
     }
 
     public static DaysDataHandler getInstance() {
         return ourInstance;
     }
 
+    /**
+     * Function used for saving medicines and checkboxes of the day
+     * that is currently open on the activity
+     * @param names
+     * @param activity
+     */
     public void saveDays(ArrayList<String> names, Activity activity) {
         TextView dateText = activity.findViewById(R.id.dateText);
         String date = dateText.getText().toString();
@@ -63,6 +71,11 @@ public class DaysDataHandler {
         prefEditor.apply();
     }
 
+    /**
+     * Loads the dates that have been saved.
+     * @param activity
+     * @return ArrayList of the dates that are saved
+     */
     public ArrayList<String> loadDays(Activity activity) {
         SharedPreferences prefGet = activity.getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
 
@@ -79,6 +92,12 @@ public class DaysDataHandler {
         return dates;
     }
 
+    /**
+     * Loads the medicine names for a specified day
+     * @param day
+     * @param activity
+     * @return Arraylist of the medicine names for that day
+     */
     public ArrayList<String> loadDaysNames(String day, Activity activity) {
         SharedPreferences prefGet = activity.getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
 
@@ -95,6 +114,12 @@ public class DaysDataHandler {
         return names;
     }
 
+    /**
+     * Loads the checkbox state for each medicine for a specified day
+     * @param day
+     * @param activity
+     * @return HashMap containing medicines as keys and booleans as values
+     */
     public HashMap<String, Boolean> loadDaysSelections(String day, Activity activity) {
         SharedPreferences prefGet = activity.getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
 
