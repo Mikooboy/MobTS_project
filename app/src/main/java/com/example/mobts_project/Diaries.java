@@ -2,7 +2,10 @@ package com.example.mobts_project;
 
 import java.util.ArrayList;
 
-
+/**
+ * Class that holds lists where blood sugars and blood pressures are saved to
+ * @author Roope Jantunen
+ */
 public class Diaries {
 
     private ArrayList<BloodPressure> bloodPressures;
@@ -24,11 +27,20 @@ public class Diaries {
     public ArrayList<BloodSugar> getBloodSugars() {
         return bloodSugars;
     }
-    public ArrayList<BloodPressure> setBloodPressures(ArrayList<BloodPressure> list) {
-        return bloodPressures = list;
+
+    /**
+     * Allows to set the blood pressure list
+     * @param list
+     */
+    public void setBloodPressures(ArrayList<BloodPressure> list) {
+        this.bloodPressures = list;
     }
-    public ArrayList<BloodSugar> setBloodSugars(ArrayList<BloodSugar> list) {
-        return bloodSugars = list;
+    /**
+     * Allows to set the blood sugars list
+     * @param list
+     */
+    public void setBloodSugars(ArrayList<BloodSugar> list) {
+        this.bloodSugars = list;
     }
 
 

@@ -1,5 +1,9 @@
 package com.example.mobts_project;
 
+/**
+ * Defines what values are needed for blood pressure
+ * @author Roope Jantunen
+ */
 public class BloodPressure {
 
     private int highPress;

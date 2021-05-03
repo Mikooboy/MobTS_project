@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
+/**
+ * Shows info on saved steps and dates, saved to StepsList at StepData
+ * @author Roope Jantunen
+ */
 public class ActivityHistoryDetails extends AppCompatActivity {
 
     Intent intent;
@@ -100,18 +104,12 @@ public class ActivityHistoryDetails extends AppCompatActivity {
     }
 
 
-    /**
-     * makes button visible
-     * @param button
-     */
+    //makes button visible
     private void ShowButton(Button button){
         button.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * makes button invisible
-     * @param button
-     */
+    // makes button invisible
     private void HideButton(Button button){
         button.setVisibility(View.INVISIBLE);
     }

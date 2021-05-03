@@ -17,6 +17,11 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * History of Aktiivisuus (activity). Allows to see saved steps and dates
+ * Starts ActivityHistoryDetails
+ * @author Roope Jantunen
+ */
 public class ActivityHistory extends AppCompatActivity {
     public static final String DATE = "com.example.MobTS_project.STEPDATE";
     public static final String STEPS = "com.example.exercise_6.STEPS";
@@ -39,6 +44,10 @@ public class ActivityHistory extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 StepData.getInstance().getStepsList()
         ));
+
+        /*
+        Starts and gives needed info to ActivityHistoryDetails
+         */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

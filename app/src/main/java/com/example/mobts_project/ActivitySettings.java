@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Activity that allows to change step goal (progress bars maximum) and to do DailyReset() from ActivityActivity
+ */
 public class ActivitySettings extends AppCompatActivity {
 
     private TextView textView;
@@ -86,19 +89,14 @@ public class ActivitySettings extends AppCompatActivity {
             }
         });
     }
-    /**
-     * makes button visible
-     * @param button
-     */
-    private void ShowButtons(Button button){
 
+     //makes button visible
+    private void ShowButtons(Button button){
         button.setVisibility(View.VISIBLE);
 
     }
-    /**
-     * makes button invisible
-     * @param button
-     */
+
+      //makes button invisible
     private void HideButtons(Button button){
        button.setVisibility(View.INVISIBLE);
 

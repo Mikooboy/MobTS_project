@@ -1,7 +1,9 @@
 package com.example.mobts_project;
 
-import java.util.Date;
-
+/**
+ * Defines what values are needed for blood sugar
+ * @author Roope Jantunen
+ */
 public class BloodSugar {
 
     private int bloodSugar;

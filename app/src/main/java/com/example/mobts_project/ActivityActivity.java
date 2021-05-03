@@ -29,6 +29,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Main activity for Aktiivisuus (Activity) tab
+ * @author Roope Jantunen
+ */
 public class ActivityActivity extends AppCompatActivity implements SensorEventListener {
 
     TextView textView;
@@ -45,8 +49,6 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     Button historyButton;
 
     String dateString;
-    String lastDate = "";
-
 
     SharedPreferences.Editor prefEditor;
     SharedPreferences prefGet;
@@ -113,15 +115,8 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onStart() {
         super.onStart();
-        LoadDate();
+        // get current date on day.moth.year format
         dateString = LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")));
-        if(lastDate.equals("")){
-            String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")));
-            prefEditor.putString("StepDate", startDate);
-            prefEditor.apply();
-            LoadDate();
-            Log.d("date3" , lastDate);
-        }
 
     }
 
@@ -152,8 +147,6 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         progressBar.setMax(stepGoal);
         // updates previousSteps and lastDate
         LoadSteps();
-        LoadDate();
-
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
             sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
         }
@@ -169,22 +162,15 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         super.onPause();
         prefEditor.putInt("savedSteps" , currentSteps);
     }
-    /**
-     * Makes previousSteps equal to stepCounters value saved on DailyReset()
-     */
+
+     //Makes previousSteps equal to stepCounters value saved on DailyReset()
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void LoadSteps(){
 
         previousSteps = prefGet.getInt("steps",0);
     }
 
-    /**
-     * Makes lastDate equal to date saved on DailyReset()
-     */
-    private void LoadDate(){
-
-        lastDate = prefGet.getString("StepDate", "");
-    }
 
     /**
      * Gets list from StepData singleton class, makes it into a json string and saves it to sharedPreferences.
@@ -193,10 +179,9 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void DailyReset(){
-        LoadDate();
         LoadSteps();
 
-        StepData.getInstance().getStepsList().add(new Steps(currentSteps, lastDate));
+        StepData.getInstance().getStepsList().add(new Steps(currentSteps, dateString));
         Gson gson = new Gson();
         String json = gson.toJson(StepData.getInstance().getStepsList());
         Log.d("JSOn", json);
@@ -222,6 +207,11 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
             StepData.getInstance().setStepsList(new ArrayList<Steps>());
         }
     }
+
+    /**
+     *
+     * @return instance
+     */
     public static ActivityActivity getInstance(){
         return instance;
     }
