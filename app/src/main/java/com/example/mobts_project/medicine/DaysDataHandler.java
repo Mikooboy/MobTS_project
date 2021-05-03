@@ -18,7 +18,8 @@ import java.util.HashMap;
 import java.util.Locale;
 
 /**
- * Singleton class that handles saving the data (medicines and checkboxes) for a specific date.
+ * Singleton class that handles saving the data (medicines and checkboxes) for a specific date
+ * @author Miko Laasanen
  */
 public class DaysDataHandler {
     private static final DaysDataHandler ourInstance = new DaysDataHandler();

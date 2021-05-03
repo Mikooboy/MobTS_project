@@ -14,6 +14,7 @@ import com.example.mobts_project.R;
 /**
  * Class used for displaying a listView of dates in the history screen
  * Days history is accessed from here
+ * @author Miko Laasanen
  */
 public class MedicineHistory extends AppCompatActivity {
     public static final String EXTRA = "com.example.MobTS_project.EXTRA";

@@ -17,6 +17,7 @@ import java.util.HashMap;
 /**
  * Class displays a page similar to the main medicine activity
  * but for a date selected in the history screen
+ * @author Miko Laasanen
  */
 public class MedicineHistoryDay extends AppCompatActivity {
     private String date;

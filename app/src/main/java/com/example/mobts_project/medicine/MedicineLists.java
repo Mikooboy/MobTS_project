@@ -12,6 +12,7 @@ import java.util.Locale;
 
 /**
  * Singleton class for managing the medicine lists
+ * @author Miko Laasanen
  */
 public class MedicineLists {
     private static final MedicineLists ourInstance = new MedicineLists();
@@ -36,7 +37,7 @@ public class MedicineLists {
     }
 
     /**
-     * Function to set the medicines
+     * Function to set the medicines.
      * Used for example when a medicine is added or removed
      * @param medications
      */
@@ -52,15 +53,18 @@ public class MedicineLists {
     public ArrayList<Medicine> getTodaysMedications(Activity activity) {
         this.todaysMedications = new ArrayList<>();
 
+        // get the day of the week
         TextView dateText = activity.findViewById(R.id.dateText);
         String date = dateText.getText().toString();
         String day = date.substring( 0, date.indexOf(","));
 
+        // make a new list from the medicines that have a reminder for this day
         for (int i = 0; i < this.medications.size(); i++) {
             if (medications.get(i).getDays().contains(day)) {
                 this.todaysMedications.add(medications.get(i));
             }
         }
+
         return this.todaysMedications;
     }
 }

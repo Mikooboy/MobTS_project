@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Simple class to hold the medicine name and reminder days
+ * @author Miko Laasanen
  */
 public class Medicine {
     private final String name;
