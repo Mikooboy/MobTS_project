@@ -45,7 +45,7 @@ public class BloodPressure {
 
     @Override
     public String toString(){
-        return date + ": Blood pressure: "+ highPress + "/" + lowPress + " pulse: " + pulse + " " + info;
+        return date;
     }
 
 
