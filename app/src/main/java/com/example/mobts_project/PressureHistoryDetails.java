@@ -63,7 +63,7 @@ public class PressureHistoryDetails extends AppCompatActivity {
         confirm.setVisibility(View.INVISIBLE);
 
         dateText.setText("Pvm:" + date);
-        detailsText.setText("Verenpaine: " + String.valueOf(details) + "/" + String.valueOf(details2) + " pulssi: " + String.valueOf(details3));
+        detailsText.setText("Verenpaine: " + String.valueOf(details) + "/" + String.valueOf(details2) + "       pulssi: " + String.valueOf(details3));
         infoText.setText(info);
 
 
@@ -99,6 +99,9 @@ public class PressureHistoryDetails extends AppCompatActivity {
                     HideButtons(confirm);
                     HideButtons(cancel);
                 }
+
+                Intent nextActivity = new Intent(PressureHistoryDetails.this , PressureHistory.class);
+                startActivity(nextActivity);
 
             }
         });

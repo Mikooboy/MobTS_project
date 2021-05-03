@@ -97,6 +97,9 @@ public class SugarsHistoryDetails extends AppCompatActivity {
                     HideButtons(cancel);
                 }
 
+                Intent nextActivity = new Intent(SugarsHistoryDetails.this , SugarsHistoryActivity.class);
+                startActivity(nextActivity);
+
             }
         });
 

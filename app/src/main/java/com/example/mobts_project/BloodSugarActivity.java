@@ -58,7 +58,7 @@ public class BloodSugarActivity extends AppCompatActivity {
                 information =  inputInfo.getText().toString();
                 bloodSugars = Integer.parseInt(bloodSugarNumber.getText().toString());
 
-                Diaries.getInstance().getBloodSugars().add(new BloodSugar( bloodSugars , information , LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")))));
+                Diaries.getInstance().getBloodSugars().add(new BloodSugar( bloodSugars , information , LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")))));
 
                 Gson gson = new Gson();
                 String json = gson.toJson(Diaries.getInstance().getBloodSugars());

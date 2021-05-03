@@ -11,6 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobTS_project">
+        <activity android:name=".PressureHistoryDetails"
+            android:parentActivityName=".PressureHistory"
+            android:label="Päivän tiedot">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PressureHistory" />
+        </activity>
         <activity android:name=".SugarsHistoryDetails"
             android:parentActivityName=".SugarsHistoryActivity"
             android:label="Päivän tiedot">

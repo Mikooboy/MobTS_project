@@ -114,9 +114,9 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     protected void onStart() {
         super.onStart();
         LoadDate();
-        dateString = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
+        dateString = LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")));
         if(lastDate.equals("")){
-            String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
+            String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")));
             prefEditor.putString("StepDate", startDate);
             prefEditor.apply();
             LoadDate();

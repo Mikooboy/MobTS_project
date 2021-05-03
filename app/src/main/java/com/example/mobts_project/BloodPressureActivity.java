@@ -67,7 +67,7 @@ public class BloodPressureActivity extends AppCompatActivity {
                 lPressure = Integer.parseInt(lPress.getText().toString());
                 pulsing = Integer.parseInt(pulse.getText().toString());
 
-                Diaries.getInstance().getBloodPressures().add(new BloodPressure( hPressure , lPressure,  pulsing, information ,  LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")))));
+                Diaries.getInstance().getBloodPressures().add(new BloodPressure( hPressure , lPressure,  pulsing, information ,  LocalDate.now().format(DateTimeFormatter.ofPattern("E, dd.MM.yyyy", new Locale("fi")))));
 
                 Gson gson = new Gson();
                 String json = gson.toJson(Diaries.getInstance().getBloodPressures());
