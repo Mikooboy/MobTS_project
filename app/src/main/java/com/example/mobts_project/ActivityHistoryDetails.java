@@ -81,7 +81,7 @@ public class ActivityHistoryDetails extends AppCompatActivity {
                 Gson gson = new Gson();
                 String json = gson.toJson(StepData.getInstance().getStepsList());
                 Log.d("JSOn", json);
-                prefEditor.putString("lista", json);
+                prefEditor.putString("StepList", json);
                 prefEditor.commit();
 
                 if (cancelButton.getVisibility() != View.INVISIBLE){

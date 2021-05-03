@@ -41,11 +41,9 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     int currentSteps = 0;
     int stepGoal;
 
-
     ProgressBar progressBar;
     Button settingButton;
     Button historyButton;
-
 
     String dateString;
     String lastDate = "";
@@ -117,13 +115,11 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("date" , " testi1: "+lastDate);
         LoadDate();
-        Log.d("date" , " testi2: "+lastDate);
         dateString = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
         if(lastDate.equals("")){
             String startDate = LocalDate.now().format(DateTimeFormatter.ofPattern(" dd.MM.yyyy", new Locale("fi")));
-            prefEditor.putString("date", startDate);
+            prefEditor.putString("StepDate", startDate);
             prefEditor.apply();
             LoadDate();
             Log.d("date3" , lastDate);
@@ -154,7 +150,6 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         progressBar.setMax(stepGoal);
         LoadSteps();
         LoadDate();
-        Log.d("Step", String.valueOf(stepGoal));
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null){
             sensorManager.registerListener(this, StepSensor, SensorManager.SENSOR_DELAY_UI);
@@ -174,43 +169,35 @@ public class ActivityActivity extends AppCompatActivity implements SensorEventLi
         prefEditor.putInt("savedSteps" , currentSteps);
     }
 
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
 
     private void LoadSteps(){
 
         previousSteps = prefGet.getInt("steps",0);
     }
-
     private void LoadDate(){
 
-        lastDate = prefGet.getString("date", "");
+        lastDate = prefGet.getString("StepDate", "");
     }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void DailyReset(){
         LoadDate();
         LoadSteps();
-        Log.d("Step1", "" + previousSteps);
-        Log.d("Step2", "" + stepCounter);
-        Log.d("Step3", "" +currentSteps);
-
 
         StepData.getInstance().getStepsList().add(new Steps(currentSteps, lastDate));
         Gson gson = new Gson();
         String json = gson.toJson(StepData.getInstance().getStepsList());
         Log.d("JSOn", json);
-        prefEditor.putString("lista", json);
+        prefEditor.putString("StepList", json);
         prefEditor.putInt("steps", stepCounter);
-        prefEditor.putString("date", dateString);
+        prefEditor.putString("StepDate", dateString);
         prefEditor.commit();
         textView.setText(String.valueOf(currentSteps));
         progressBar.setProgress(currentSteps);
     }
     public void LoadList() {
         Gson gson = new Gson();
-        String json = prefGet.getString("lista", null);
+        String json = prefGet.getString("StepList", null);
         Type type = new TypeToken<ArrayList<Steps>>() {}.getType();
         StepData.getInstance().setStepsList(gson.fromJson(json, type));
 
