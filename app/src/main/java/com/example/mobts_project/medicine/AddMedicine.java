@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Creates the Dialog that is used for adding medicines.
+ * Creates the Dialog that is used for adding medicines
+ * @author Miko Laasanen
  */
 public class AddMedicine extends AppCompatDialogFragment {
 

@@ -2,6 +2,7 @@ package com.example.mobts_project.medicine;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import java.util.Objects;
 
 /**
  * Creates the Dialog that is used for removing medicines.
+ * @author Miko Laasanen
  */
 public class RemoveMedicine extends AppCompatDialogFragment {
 
@@ -74,15 +76,6 @@ public class RemoveMedicine extends AppCompatDialogFragment {
                     MedicineLists.getInstance().setMedications(newMedicineList);
                     dialog.dismiss();
                     ((MedicineActivity) Objects.requireNonNull(getActivity())).saveMedicines();
-
-                    ArrayList<String> names = new ArrayList<>();
-                    ArrayList<Medicine> medicines = MedicineLists.getInstance().getTodaysMedications(Objects.requireNonNull(getActivity()));
-
-                    for (int i = 0; i < medicines.size(); i++) {
-                        names.add(medicines.get(i).getName());
-                    }
-
-                    DaysDataHandler.getInstance().saveDays(names, Objects.requireNonNull(getActivity()));
 
                     ((MedicineActivity) Objects.requireNonNull(getActivity())).updateReminders();
                 }

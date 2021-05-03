@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,9 +24,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Main activity in the medicine tab
+ * @author Miko Laasanen
  */
 public class MedicineActivity extends AppCompatActivity {
     private String date;
@@ -96,6 +99,15 @@ public class MedicineActivity extends AppCompatActivity {
     public void openAddMedicine(View view) {
         AddMedicine addMedicine = new AddMedicine();
         addMedicine.show(getSupportFragmentManager(), "aMedicine");
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Medicine> medicines = MedicineLists.getInstance().getTodaysMedications(this);
+
+        for (int i = 0; i < medicines.size(); i++) {
+            names.add(medicines.get(i).getName());
+        }
+
+        DaysDataHandler.getInstance().saveDays(names, this);
     }
 
     /**
@@ -105,6 +117,15 @@ public class MedicineActivity extends AppCompatActivity {
     public void openRemoveMedicine(View view) {
         RemoveMedicine removeMedicine = new RemoveMedicine();
         removeMedicine.show(getSupportFragmentManager(), "rMedicine");
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Medicine> medicines = MedicineLists.getInstance().getTodaysMedications(this);
+
+        for (int i = 0; i < medicines.size(); i++) {
+            names.add(medicines.get(i).getName());
+        }
+
+        DaysDataHandler.getInstance().saveDays(names, this);
     }
 
     /**
