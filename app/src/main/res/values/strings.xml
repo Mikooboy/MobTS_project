@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MobTS_project</string>
+    <string name="app_name">MUISTIKKO</string>
     <string name="medicationTitle">Lääkkeet</string>
     <string name="button_addMedication">Lisää lääke</string>
     <string name="history">Historia</string>
@@ -25,6 +25,7 @@
     <string name="settings">Asetukset</string>
     <string name="resetText">Paina nappia tallentaaksesi sekä nollaaksesi askeleet</string>
     <string name="stepGoalInfo">Aseta päivittäinen askeltavoitteesi. Vakio 10 000</string>
+
 
 
 </resources>
