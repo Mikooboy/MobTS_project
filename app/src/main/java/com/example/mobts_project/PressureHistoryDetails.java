@@ -1,7 +1,5 @@
 package com.example.mobts_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
@@ -67,7 +67,7 @@ public class PressureHistoryDetails extends AppCompatActivity {
         cancel.setVisibility(View.INVISIBLE);
         confirm.setVisibility(View.INVISIBLE);
 
-        dateText.setText("Pvm:" + date);
+        dateText.setText("Pvm: " + date);
         detailsText.setText("Verenpaine: " + String.valueOf(details) + "/" + String.valueOf(details2) + "       pulssi: " + String.valueOf(details3));
         infoText.setText(info);
 
