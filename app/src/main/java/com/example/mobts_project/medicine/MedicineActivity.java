@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,7 +23,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * Main activity in the medicine tab
@@ -75,7 +73,7 @@ public class MedicineActivity extends AppCompatActivity {
             names.add(medicines.get(i).getName());
         }
 
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 
     @Override
@@ -89,7 +87,7 @@ public class MedicineActivity extends AppCompatActivity {
             names.add(medicines.get(i).getName());
         }
 
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 
     /**
@@ -107,7 +105,7 @@ public class MedicineActivity extends AppCompatActivity {
             names.add(medicines.get(i).getName());
         }
 
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 
     /**
@@ -125,7 +123,7 @@ public class MedicineActivity extends AppCompatActivity {
             names.add(medicines.get(i).getName());
         }
 
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 
     /**

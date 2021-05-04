@@ -26,7 +26,7 @@ public class MedicineHistory extends AppCompatActivity {
         
 
         ListView lv = findViewById(R.id.datesList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, DaysDataHandler.getInstance().loadDays(this));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, DaysDataHandler.getInstance().loadDay(this));
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
