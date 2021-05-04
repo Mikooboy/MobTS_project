@@ -12,10 +12,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 
 /**
  * Singleton class that handles saving the data (medicines and checkboxes) for a specific date
@@ -38,7 +36,7 @@ public class DaysDataHandler {
      * @param names
      * @param activity
      */
-    public void saveDays(ArrayList<String> names, Activity activity) {
+    public void saveDay(ArrayList<String> names, Activity activity) {
         TextView dateText = activity.findViewById(R.id.dateText);
         String date = dateText.getText().toString();
 
@@ -56,7 +54,7 @@ public class DaysDataHandler {
 
         Gson gson = new Gson();
 
-        ArrayList<String> dates = loadDays(activity);
+        ArrayList<String> dates = loadDay(activity);
 
         if (!dates.contains(date)) {
             dates.add(date);
@@ -77,7 +75,7 @@ public class DaysDataHandler {
      * @param activity
      * @return ArrayList of the dates that are saved
      */
-    public ArrayList<String> loadDays(Activity activity) {
+    public ArrayList<String> loadDay(Activity activity) {
         SharedPreferences prefGet = activity.getSharedPreferences("MobTS_project", Activity.MODE_PRIVATE);
 
         Gson gson = new Gson();

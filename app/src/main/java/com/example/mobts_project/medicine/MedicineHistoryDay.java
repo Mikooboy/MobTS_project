@@ -32,7 +32,7 @@ public class MedicineHistoryDay extends AppCompatActivity {
 
         TextView dateText = findViewById(R.id.dateText);
 
-        this.date = DaysDataHandler.getInstance().loadDays(this).get(item);
+        this.date = DaysDataHandler.getInstance().loadDay(this).get(item);
         dateText.setText(this.date);
 
         ArrayList<String> names = DaysDataHandler.getInstance().loadDaysNames(this.date, this);
@@ -77,7 +77,7 @@ public class MedicineHistoryDay extends AppCompatActivity {
         super.onPause();
 
         ArrayList<String> names = DaysDataHandler.getInstance().loadDaysNames(this.date, this);
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 
     @Override
@@ -85,6 +85,6 @@ public class MedicineHistoryDay extends AppCompatActivity {
         super.onDestroy();
 
         ArrayList<String> names = DaysDataHandler.getInstance().loadDaysNames(this.date, this);
-        DaysDataHandler.getInstance().saveDays(names, this);
+        DaysDataHandler.getInstance().saveDay(names, this);
     }
 }
