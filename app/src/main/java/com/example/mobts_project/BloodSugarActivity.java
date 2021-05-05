@@ -21,6 +21,7 @@ import java.util.Locale;
 
 /**
  * Main activity in the BloodSugar tab
+ * @author Julius Saukonoja
  */
 
 public class BloodSugarActivity extends AppCompatActivity {

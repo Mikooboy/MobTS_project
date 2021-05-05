@@ -9,6 +9,7 @@ import android.widget.Button;
 
 /**
  * Activity for launching diaries BloodSugar and BloodPressure
+ * @author Julius Saukonoja
  */
 
 public class DiariesActivity extends AppCompatActivity {

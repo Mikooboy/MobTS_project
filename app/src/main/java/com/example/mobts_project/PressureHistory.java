@@ -20,6 +20,7 @@ import java.util.ArrayList;
 /**
  * Class used for displaying a listView of days and bloodpressure values in the history screen
  * the information of the day is accessed from here
+ * @author Julius Saukonoja
  */
 
 public class PressureHistory extends AppCompatActivity {

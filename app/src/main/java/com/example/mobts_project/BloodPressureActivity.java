@@ -21,6 +21,7 @@ import java.util.Locale;
 
 /**
  * Main activity in the BloodPressure tab
+ * @author Julius Saukonoja
  */
 
 public class BloodPressureActivity extends AppCompatActivity {
