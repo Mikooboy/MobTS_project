@@ -11,6 +11,7 @@ import com.example.mobts_project.medicine.MedicineActivity;
 
 /**
  * Main activity works as a launcher for Diaries, Medicine and Activity activities
+ * @author Julius Saukonoja
  */
 
 public class MainActivity extends AppCompatActivity {
